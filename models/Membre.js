@@ -44,6 +44,13 @@ const MembreSchema = new mongoose.Schema({
   },
   avatar: {
     type: String,
+  },
+  jours: {
+    type: Number,
+    required: true
+  },
+  green: {
+    type: Boolean
   }
 });
 

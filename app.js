@@ -43,6 +43,8 @@ const User = mongoose.model("users");
 // DB Config
 const db = require("./config/database");
 
+var current = moment();
+
 // Connect to mongoose
 
 mongoose
@@ -115,11 +117,35 @@ app.get("/membres", ensureAuthenticated, (req, res) => {
       date: "desc",
     })
     .then((membres) => {
-      res.render("membres/membres", {
-        membres: membres,
+      membres.forEach((membre) => {
+
+        console.log(membre.jours);
+
+        if (membre.jours <= 0) {
+          membre.green = true;
+        } else {
+          membre.green = false;
+        }
       });
+
+      res.render("membres/membres", {
+        membres: membres
+      });
+
+
     });
+
 });
+
+
+
+
+
+
+
+
+
+
 
 // Produits Index Page
 app.get("/achats", ensureAuthenticated, (req, res) => {
@@ -231,6 +257,7 @@ app.post("/membres", ensureAuthenticated, (req, res) => {
     prenom: req.body.prenom,
     email: req.body.email,
     ddn: req.body.ddn,
+    jours: req.body.jours,
     phone: req.body.tele,
     typeS: req.body.typeS,
     typeC: req.body.typeC,
@@ -239,6 +266,11 @@ app.post("/membres", ensureAuthenticated, (req, res) => {
   };
 
   newUser.ddn = moment(req.body.ddn).format("D-MM-YYYY");
+  var date_abonn = moment(newUser.jours);
+  var jours_restes = date_abonn.diff(current, 'days');
+  newUser.jours = jours_restes;
+
+
 
   new Membre(newUser).save().then((membre) => {
     res.redirect("/membres");
@@ -314,11 +346,15 @@ app.put("/membres/:id", ensureAuthenticated, (req, res) => {
   Membre.findOne({
     _id: req.params.id,
   }).then((membre) => {
+
+    var date_abonn = moment(req.body.jours);
+    var jours_restes = date_abonn.diff(current, 'days');
     // new values
     membre.ID = req.body.ID;
     membre.nom = req.body.nom;
     membre.prenom = req.body.prenom;
     membre.ddn = moment(req.body.ddn).format("D-MM-YYYY");
+    membre.jours = jours_restes;
     membre.email = req.body.email;
     membre.phone = req.body.tele;
     membre.typeS = req.body.typeS;

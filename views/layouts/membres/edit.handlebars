@@ -20,17 +20,14 @@
             </div>
 
             <div class="row">
-                <div class="input-field col s12">
+                <div class="input-field col s6">
                     <input id="ddn" type="date" name="ddn" class="validate" required
                         oninvalid="this.setCustomValidity('Veuillez saisir la date de naissance Baliz!')"
                         oninput="setCustomValidity('')" value="{{membre.ddn}}">
                     <label for="ddn">Date de naissance</label>
 
                 </div>
-            </div>
-
-            <div class="row">
-                <div class="input-field col s12">
+                <div class="input-field col s6">
                     <input id="email" type="email" name="email" class="validate" required
                         oninvalid="this.setCustomValidity('Veuillez saisir une Adresse Email valide, Baliz!')"
                         oninput="setCustomValidity('')" value="{{membre.email}}">
@@ -41,8 +38,9 @@
 
 
 
+
             <div class="row">
-                <div class="input-field col s12">
+                <div class="input-field col s6">
                     <input id="telephone" type="tel" name="tele" class="validate" required
                         oninvalid="this.setCustomValidity('Veuillez saisir un Numero de telephone Baliz!')"
                         oninput="setCustomValidity('')" value="0{{membre.phone}}">
@@ -52,7 +50,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="input-field col s12">
+                <div class="input-field col s6">
                     <select multiple name="typeS" class="validate">
                         <option value="" disabled selected>Choississez le type de sport</option>
                         <option value="Fitness">Fitness</option>
@@ -66,9 +64,7 @@
 
 
                 </div>
-            </div>
-            <div class="row">
-                <div class="input-field col s12">
+                <div class="input-field col s6">
                     <select name="typeC">
                         <option value="" disabled selected>Choississez le type de convention</option>
                         <option value="Militaire">Militaire</option>
@@ -81,13 +77,21 @@
                 </div>
             </div>
 
+
             <div class="row">
-                <div class="input-field col s12">
+                <div class="input-field col s6">
                     <input id="password" type="text" class="validate" name="ID" required
                         oninvalid="this.setCustomValidity('Veuillez saisir un ID, Baliz!')"
                         oninput="setCustomValidity('')" value="{{membre.ID}}">
                     <label for="ID">Matricule du client ID</label>
                     <span class="helper-text" data-error="Invalid" data-success=""></span>
+                </div>
+                <div class="input-field col s6">
+                    <input id="ddn" type="date" name="jours" class="validate" required
+                        oninvalid="this.setCustomValidity('Veuillez saisir la date debut d'abonnemnt, Baliz!')"
+                        oninput="setCustomValidity('')" value="{{membre.jours}}">
+                    <label for="ddn">Date debut d'abonnement</label>
+
                 </div>
             </div>
 

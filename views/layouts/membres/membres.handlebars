@@ -38,7 +38,24 @@
 
                 {{/if}}
 
+                {{#if green}}
+                <div class="card-content" style="background-color: red;">
+                    <p> <span class="card_items">Nom :</span> {{nom}}</p>
+                    <p> <span class="card_items"> Prénom :</span> {{prenom}} </p>
+                    <p> <span class="card_items"> Date de naissance :</span> {{ddn}}</p>
+                    <p> <span class="card_items">Téléphone : </span> 0{{phone}}</p>
+                    <p> <span class="card_items">Email : </span> {{email}}</p>
+                    <p> <span class="card_items"> Type de Sport : </span>{{typeS}}</p>
+                    <p> <span class="card_items"> Type de Convention : </span>{{typeC}}</p>
+                    <p> <span class="card_items">Sexe :</span> {{sexe}}</p>
+                    <p style="font-weight: bolder; font-size: 1.3rem; color:springgreen;"> <span
+                            class="card_items">Jours :</span>
+                        {{jours}}
+                    </p>
 
+
+                </div>
+                {{else}}
                 <div class="card-content">
                     <p> <span class="card_items">Nom :</span> {{nom}}</p>
                     <p> <span class="card_items"> Prénom :</span> {{prenom}} </p>
@@ -48,8 +65,16 @@
                     <p> <span class="card_items"> Type de Sport : </span>{{typeS}}</p>
                     <p> <span class="card_items"> Type de Convention : </span>{{typeC}}</p>
                     <p> <span class="card_items">Sexe :</span> {{sexe}}</p>
+                    <p style="font-weight: bolder; font-size: 1.3rem; color:springgreen;"> <span
+                            class="card_items">Jours :</span>
+                        {{jours}}
+                    </p>
 
                 </div>
+
+                {{/if}}
+
+
             </div>
 
             {{else}}
