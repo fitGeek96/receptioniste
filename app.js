@@ -119,7 +119,6 @@ app.get("/membres", ensureAuthenticated, (req, res) => {
     .then((membres) => {
       membres.forEach((membre) => {
 
-        console.log(membre.jours);
 
         if (membre.jours <= 0) {
           membre.green = true;
